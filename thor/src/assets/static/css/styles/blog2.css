@@ -1,0 +1,201 @@
+:root {
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--black: #000;
+	--form-bg: #202040;
+	--nav-card-bg: #fbfbfb;
+	--ash: #666765;
+	--border-clr: #ccc;
+	--grey: #222;
+	--yellow: #ffb503;
+	--green: #62d493;
+	--red: #ff4961;
+	--dark: #202040;
+	--light-blue: #e7f0fe;
+}
+.socials .title h6 {
+	font-weight: 600;
+}
+.socials ul {
+	align-items: center;
+	row-gap: 0.5rem;
+	column-gap: 1.2rem;
+}
+.socials ul li a svg {
+	color: var(--dark);
+	width: 1.8rem;
+}
+.socials ul li {
+	margin: 1rem 0;
+}
+:is(.content, .content-body) {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.content-body {
+	padding-top: 3rem;
+	row-gap: 2rem;
+}
+.content small {
+	color: var(--dark);
+	font-weight: 600;
+}
+.content .pre-cases span {
+	font-size: 15px;
+	color: var(--dark);
+}
+.content :is(.use-case) .title h6 {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+.content-body :is(.use-case-body) {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+.content .use-case-body .parent {
+	counter-reset: list;
+}
+.content .use-case-body .parent > li {
+	margin-bottom: 1rem;
+	position: relative;
+}
+.content .use-case-body .parent > li::before {
+	position: absolute;
+	counter-increment: list;
+	content: counter(list) ". ";
+	position: absolute;
+	left: -1.5rem;
+	line-height: 1.6;
+	font-weight: 600;
+}
+.content .children {
+	counter-reset: alphabeticList;
+	padding-left: 2rem;
+	padding-top: 1rem;
+}
+.content .children > li {
+	position: relative;
+	counter-increment: alphabeticList;
+	margin-bottom: 1rem;
+}
+.content .children > li::before {
+	position: absolute;
+	content: counter(alphabeticList, lower-alpha) ". ";
+	speak-as: counter(alphabeticList, lower-alpha);
+	font-weight: 900;
+	left: -1.5rem;
+}
+.content .grand-children {
+	padding-left: 1.5rem;
+	padding-top: 1rem;
+}
+.content .grand-children > li {
+	position: relative;
+	counter-increment: roman;
+	margin-bottom: 1rem;
+}
+.content .grand-children > li::before {
+	position: absolute;
+	content: counter(roman, lower-roman) ". ";
+	speak-as: counter(roman, lower-roman);
+	font-weight: 900;
+	left: -1.5rem;
+}
+@media all and (max-width: 600px) {
+	.content .grand-children {
+		padding-left: 2rem;
+	}
+	.content .children {
+		padding-left: 1rem;
+	}
+}
+.featured {
+	margin: 5pc 0;
+}
+.featured-title {
+	text-align: center;
+	width: max-content;
+	margin-inline: auto;
+}
+.featured-title h3 {
+	padding-bottom: 0.7rem;
+	border-bottom: 3px solid var(--primary-clr);
+}
+.carousel-wrapper {
+	padding-top: 3rem;
+}
+.each-card .card {
+	border: none;
+	height: 100%;
+}
+.each-card .card .card-image {
+	overflow: hidden;
+	position: relative;
+	height: 200px;
+}
+.each-card .card .card-image img {
+	height: 100%;
+}
+.each-card .card .card-body {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+.each-card {
+	border-radius: 6px;
+	-webkit-transition: all 300ms ease-in-out;
+	-moz-transition: all 300ms ease-in-out;
+	-ms-transition: all 300ms ease-in-out;
+	-o-transition: all 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
+	border: 1px solid #d7d7d7;
+}
+
+.each-card .card-body .top {
+	display: flex;
+	align-items: flex-start;
+	row-gap: 1rem;
+	flex-direction: column;
+}
+.each-card .card-body .top small {
+	color: var(--ash);
+}
+.each-card .card-body .top :is(h5, p) {
+	color: var(--dark);
+}
+.each-card .card-body .bottom > span {
+	display: flex;
+	align-items: center;
+	color: var(--primary-clr);
+	border-bottom: 2px solid var(--primary-clr);
+	border-radius: 0;
+	padding-bottom: 4px;
+	width: max-content;
+	margin-bottom: 1rem;
+}
+.each-card .card-body span em {
+	font-size: 1.2rem;
+	line-height: 1;
+}
+.each-card .card-body span:has(em) {
+	margin-left: 5px;
+}
+/* splide */
+.splide__pagination {
+	bottom: -4rem;
+}
+.splide__arrow {
+	background-color: var(--primary-clr);
+	border-radius: 0;
+}
+.splide__arrow svg {
+	fill: var(--white);
+}
+.splide__pagination__page.is-active {
+	background-color: var(--primary-clr);
+}
+.splide__pagination li {
+	margin: 0 0.3rem;
+}

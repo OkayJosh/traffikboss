@@ -44,14 +44,17 @@ class PostSerializer(serializers.Serializer):
         else:
             file_url = None
 
-        return {'image_url': file_url}
+        return file_url
 
 
 class SocialPostSerializers(ModelSerializer):
     class Meta:
         model = SocialPost
         fields = [
-            'uuid', 'account', 'date_published', 'content', 'file', 'likes', 'comments', 'shares', 'published'
+            'uuid', 'account', 'date_published',
+            'content', 'file', 'likes',
+            'comments', 'shares', 'published',
+            'response', 'header', 'data'
         ]
 
 

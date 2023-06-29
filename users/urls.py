@@ -18,7 +18,7 @@ router.register(r'contact', ContactUsViewSet, basename='contact')
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
     path('providers/', SocialProvider.as_view(), name='providers'),
     path('signup/', CreateUserView.as_view(), name='signup'),
     path('password-reset/', PasswordResetView.as_view(), name='password_reset'),

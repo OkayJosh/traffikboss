@@ -1,0 +1,53 @@
+@font-face {
+	font-family: BR;
+	src: url("../../fonts/Roboto-Regular.ttf");
+}
+@font-face {
+	font-family: BR-Bold;
+	src: url("../../fonts/Roboto-Bold.ttf");
+}
+
+/*  <======== VARIABLES =======>  */
+:root {
+	--font: BR;
+	--bg: #f5f5f5;
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--border: #ccc;
+	--green-light: #62d493;
+	--green-dark: #27cf70;
+	--grey: #d2d2d2;
+	--black: #000;
+}
+
+/* <======== DEFAULTS =======> */
+*,
+*::before,
+*::after {
+	font-family: var(--font) !important;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:is(h1, h2, h3, h4, h5, h6, ul) {
+	margin: 0;
+	padding: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) {
+	font-family: BR-Bold !important;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	font-size: 14px;
+	text-decoration: none;
+}
+button {
+	all: unset;
+	-webkit-transition: 280ms ease-in-out;
+	-moz-transition: 280ms ease-in-out;
+	-ms-transition: 280ms ease-in-out;
+	-o-transition: 280ms ease-in-out;
+	transition: 280ms ease-in-out;
+}

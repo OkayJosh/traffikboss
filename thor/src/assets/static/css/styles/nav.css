@@ -1,0 +1,116 @@
+:root {
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--black: #000;
+	--form-bg: #202040;
+	--nav-card-bg: #fbfbfb;
+	--border-clr: #ccc;
+}
+/* pc view */
+.header-inner {
+	background-color: var(--nav-card-bg);
+	padding: 1.2rem 1rem 1.3rem;
+}
+.header-inner :is(.logo-et-nav-links, .nav-links, .auth-link-inner) {
+	display: flex;
+	align-items: center;
+}
+.header-inner .nav-links {
+	justify-content: space-evenly;
+	margin-left: 3rem;
+}
+.header-inner .nav-links li {
+	margin-right: 1rem;
+}
+.header-inner .nav-links a {
+	font-size: 14px;
+	color: var(--black);
+	padding-bottom: 3px;
+	border-bottom: 2px solid transparent;
+	letter-spacing: 0.2px;
+}
+.header-inner .nav-links a.active {
+	color: var(--primary-clr);
+	border-color: var(--primary-clr);
+}
+.header-inner .nav-links a:hover {
+	color: var(--primary-clr);
+}
+.return-home {
+	display: flex;
+	align-items: center;
+	color: var(--primary-clr);
+	letter-spacing: 0.2px;
+	justify-content: flex-end;
+	font-weight: 600;
+}
+.return-home:hover {
+	color: var(--primary-clr);
+}
+.return-home > span:nth-child(2) {
+	margin-left: 10px;
+}
+.return-home > span:nth-child(2) em::before {
+	font-weight: 600 !important;
+}
+.auth-link-inner {
+	justify-content: flex-end;
+}
+.auth-link li {
+	margin-right: 1rem;
+}
+.auth-link li a {
+	border: 2px solid;
+	border-radius: 5px;
+	padding: 0.75rem 1.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+	font-size: 13px;
+}
+.auth-link li a.login {
+	border-color: var(--black);
+	color: var(--black);
+	background-color: transparent;
+}
+.auth-link li a.register {
+	border-color: var(--primary-clr);
+	color: var(--white);
+	background-color: var(--primary-clr);
+}
+
+/* mobile view */
+.offcanvas-header {
+	justify-content: flex-end;
+}
+.offcanvas-body .mobile-nav-links ul {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 2.5rem;
+}
+@media all and (min-width: 760px) {
+	.offcanvas,
+	.offcanvas-backdrop.show {
+		display: none;
+	}
+}
+.mobile-nav-links li a {
+	font-size: 15px;
+	color: var(--form-bg);
+}
+.mobile-nav-links :is(a.login, a.register) {
+	border: 2px solid transparent;
+	padding: 13px 2rem;
+	margin: 1rem 0;
+	border-radius: 5px;
+}
+.mobile-nav-links a.register {
+	border-color: var(--primary-clr);
+	background-color: var(--primary-clr);
+	color: var(--white);
+}
+.mobile-nav-links a.login {
+	border-color: var(--form-bg);
+	background-color: var(--white);
+	color: var(--form-bg);
+}

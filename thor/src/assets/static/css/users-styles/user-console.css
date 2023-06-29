@@ -1,0 +1,46 @@
+:root {
+	--bg: #f5f5f5;
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--border: #ccc;
+	--green-light: #62d493;
+	--green-dark: #27cf70;
+	--grey: #d2d2d2;
+	--light-grey: #999;
+	--dark-grey: #666;
+	--black: #000;
+	--red: #ff4961;
+}
+.start-console button {
+	color: var(--white);
+	border-radius: 5px;
+	background-color: var(--green-light);
+	font-size: 15px;
+	padding: 12px 2rem;
+}
+.start-console button:hover {
+	background-color: var(--green-dark);
+}
+.console-content {
+	margin-top: 1.5rem;
+}
+.console-content .console-title h6 {
+	color: var(--black);
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+.console-content .console-body {
+	border: 1px solid var(--border);
+	margin-top: 1rem;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.console-content .console-body-inner {
+	background-color: var(--white);
+	min-height: 380px;
+}
+@media all and (min-width: 768px) {
+	.console-content .console-body {
+		width: 90%;
+	}
+}

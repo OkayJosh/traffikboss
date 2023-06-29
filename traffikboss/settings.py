@@ -49,8 +49,10 @@ THIRDPARTY_APPS = [
 INTERNAL_APPS = [
     'users',
     'socials',
-    'console',
+    'business',
     'settings',
+    'brand',
+    'content'
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + THIRDPARTY_APPS + INTERNAL_APPS
@@ -71,7 +73,10 @@ ROOT_URLCONF = 'traffikboss.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [
+            BASE_DIR / 'templates',
+            os.path.join(BASE_DIR, 'dist'),
+            ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -183,6 +188,10 @@ PROJECT_APP_NAME = 'traffikboss'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'dist'),
+]
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -207,3 +216,14 @@ SOCIALACCOUNT_TOKEN_EXPIRY = 23456
 SOCIALACCOUNT_STORE_TOKENS = True
 ACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_QUERY_EMAIL = ACCOUNT_EMAIL_REQUIRED
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'

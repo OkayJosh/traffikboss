@@ -1,0 +1,7 @@
+[submodule "thor"]
+    path = thor
+    url = https://github.com/OkayJosh/thor.git
+
+[submodule "thordash"]
+    path = thordash
+    url = https://github.com/OkayJosh/thordash.git

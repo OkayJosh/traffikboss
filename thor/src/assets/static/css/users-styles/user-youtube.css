@@ -1,0 +1,230 @@
+:root {
+	--bg: #f5f5f5;
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--border: #ccc;
+	--green-light: #62d493;
+	--green-dark: #27cf70;
+	--grey: #d2d2d2;
+	--light-grey: #999;
+	--dark-grey: #666;
+	--black: #000;
+	--red: #ff4961;
+}
+.page-content-body-inner {
+	margin-bottom: 5rem;
+}
+.page-content-body-inner .cards-wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: 1.8rem;
+	row-gap: 2rem;
+	flex-wrap: wrap;
+}
+.cards-wrapper .each-card {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	padding: 0.6rem 1rem;
+	border-radius: 6px;
+	background-color: var(--white);
+	min-width: 205px;
+	min-height: 120px;
+	align-items: flex-end;
+	display: flex;
+}
+@media all and (max-width: 426px) {
+	.cards-wrapper .each-card {
+		width: 100%;
+	}
+}
+.each-card .card-icon em {
+	font-size: 1.35rem;
+}
+.each-card .value {
+	margin-top: 1.4rem;
+}
+.each-card:nth-child(1) * {
+	color: var(--primary-clr);
+}
+.each-card:nth-child(2) * {
+	color: var(--green-dark);
+}
+.each-card:nth-child(3) * {
+	color: var(--red);
+}
+.each-card .value .amount h3 {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+.each-card .value .total-links {
+	margin-top: 5px;
+	font-size: 15px;
+}
+.links-content {
+	margin-top: 3rem;
+}
+.links-content-inner {
+	min-height: 400px;
+	border: 1px solid var(--border);
+	background-color: var(--white);
+	border-radius: 5px;
+	padding: 1rem 1.5rem;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.links-content-inner .header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.links-content-inner .header-title {
+	font-weight: 900;
+	color: var(--black);
+}
+.links-content-inner button {
+	background-color: var(--primary-clr);
+	color: var(--white);
+	border-radius: 6px;
+	font-size: 0.9rem;
+	padding: 10px 2rem;
+}
+@media all and (min-width: 768px) {
+	.page-content-body-inner {
+		width: 90%;
+	}
+}
+@media all and (max-width: 768px) {
+	.links-content-inner {
+		padding: 1rem;
+	}
+}
+
+.links-body {
+	padding-top: 1.5rem;
+}
+.links-body .header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.links-body .header-inner span {
+	color: var(--black);
+	font-weight: 600;
+	font-size: 1.25rem;
+}
+.links-body-inner {
+	padding-top: 2.5rem;
+}
+.links-body-inner thead tr th {
+	font-size: 1.3rem;
+	font-weight: 900;
+}
+.links-body-inner tbody td a {
+	color: var(--black);
+}
+.table > :not(caption) > * > * {
+	font-size: 14px;
+}
+@media all and (max-width: 320px) {
+	.table > :not(caption) > * > * {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 40px;
+	}
+}
+.traffic-overview {
+	margin-top: 3rem;
+}
+.traffic-overview-inner {
+	min-height: 400px;
+	border: 1px solid var(--border);
+	background-color: var(--white);
+	border-radius: 5px;
+	padding: 1rem 1.5rem;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.overview-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 1rem;
+}
+.date-time input[type="date"] {
+	border: none;
+}
+.date-time input[type="date"] {
+	background-color: var(--white);
+}
+.date-time input[type="date"]::-webkit-datetime-edit {
+	display: none;
+}
+.mobile-dropdown {
+	border: 1px solid var(--border);
+	padding: 6px;
+	border-radius: 5px;
+}
+.mobile-dropdown-menu.show {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	border: 1px solid var(--border);
+	min-height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.mobile-dropdown-menu button {
+	column-gap: 10px;
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	padding: 6px 10px;
+}
+.mobile-dropdown svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+.dropdown-toggle::after {
+	display: none;
+}
+.date-time input[type="date"]:focus {
+	outline: none;
+	border: none;
+}
+.pc-view {
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	padding: 6px 10px;
+	column-gap: 5px;
+}
+
+.modal#add-youtube-link .modal-body {
+	min-height: 130px;
+}
+.modal#add-youtube-link .form-input .form-control {
+	min-height: 3rem;
+	font-size: 14px;
+}
+.modal#add-youtube-link .form-input .form-control::placeholder {
+	font-size: 13px;
+	color: var(--border);
+}
+.modal#add-youtube-link .form-input .form-control:focus {
+	border: 2px solid var(--primary-clr);
+	box-shadow: none;
+}
+.modal#add-youtube-link form .modal-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+}
+.modal#add-youtube-link form button.cancel {
+	text-decoration: underline;
+	color: var(--black);
+	font-size: 15px;
+}
+.modal#add-youtube-link form button.submit {
+	background-color: var(--primary-clr);
+	color: var(--white);
+	font-size: 15px;
+	border-radius: 5px;
+	padding: 8px 1.2rem;
+}

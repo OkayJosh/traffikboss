@@ -1,0 +1,48 @@
+@font-face {
+	font-family: font;
+	src: url("../../fonts/Roboto-Medium.ttf");
+}
+
+:root {
+	--font-family: font;
+	--primary-clr: #ff4a00;
+	--form-footer-clr: #f1f1f1;
+	--white: #fff;
+	--black: #000;
+	--form-bg: #202040;
+	--input-bg: #fbfbfb;
+	--border-clr: #ccc;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font-family);
+}
+
+:is(h1, h2, h3, h4, h5, h6, ul) {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	font-size: 14px;
+	text-decoration: none;
+}
+
+a,
+button {
+	-webkit-transition: 300ms ease-in-out;
+	-moz-transition: 300ms ease-in-out;
+	-ms-transition: 300ms ease-in-out;
+	-o-transition: 300ms ease-in-out;
+	transition: 300ms ease-in-out;
+}
+
+button {
+	all: unset;
+}

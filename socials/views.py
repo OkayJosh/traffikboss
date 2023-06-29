@@ -1,6 +1,5 @@
 import requests
 from allauth.socialaccount.models import SocialAccount
-from allauth.socialaccount.providers.base.mixins import OAuthLoginMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from rest_framework import status
@@ -18,28 +17,27 @@ from socials.serializers import PostSerializer, SocialPostSerializers
 class LinkedInPostAdapter(PostAdapter, ScheduleMixin):
     provider_id = LinkedInOAuth2Provider.id
     API_URL = 'https://api.linkedin.com/v2/ugcPosts'
-    MEDIA_UPLOAD_URL = 'https://api.linkedin.com/media/upload'
+    MEDIA_UPLOAD_URL = 'https://api.linkedin.com/v2/assets?action=registerUpload'
     MAX_IMAGE_SIZE = 5_242_880  # 5 MB
 
     def __init__(self):
         self.access_token = None
         self.account = None
 
-    def authenticate(self, access_token, account):
+    def authenticate(self, account, access_token=None):
         self.account = account
-        self.access_token = self.account.extra_data['access_token']
+        self.access_token = access_token if access_token else self.account.socialtoken_set.first().token
         if access_token and not account:
+            # {"elements": [{"handle~": {"emailAddress": "joshuakayode169@gmail.com"}, "handle": "urn:li:emailAddress:8621693302"}], "firstName": {"localized": {"en_US": "joshua"}, "preferredLocale": {"country": "US", "language": "en"}}, "lastName": {"localized": {"en_US": "Olatunji"}, "preferredLocale": {"country": "US", "language": "en"}}, "id": "xgLGs07jZ7"}
             self.account = SocialAccount.objects.filter(extra_data__access_token=access_token)
 
     def post_async(self, message, scheduled_time=None, handler=None, image_url=None):
         if scheduled_time:
             self.schedule_post(scheduled_time)
-        post_db_sync = SocialPost.objects.create(content=message, date_published=scheduled_time or timezone.now(),
-                                                 file=image_url, account=self.account)
-        from socials.tasks import post_to_linkedin
-        post_to_linkedin.apply_async(args=[self.access_token, message,
-                                           handler, image_url, post_db_sync.id],
-                                     eta=scheduled_time)
+        else:
+            post_db_sync = SocialPost.objects.create(content=message, date_published=scheduled_time or timezone.now(),
+                                                     file=image_url, account=self.account)
+            self.post(message=message, handler=handler, image_url=image_url, post_db_sync_id=post_db_sync.uuid)
         return 'Submitted'
 
     def post(self, message, handler=None, image_url=None, post_db_sync_id=None):
@@ -80,8 +78,8 @@ class LinkedInPostAdapter(PostAdapter, ScheduleMixin):
 
         response = requests.post(self.API_URL, headers=headers, json=data)
         response.raise_for_status()
-        post = SocialPost.objects.get(id=post_db_sync_id)
-        post.response = response
+        post = SocialPost.objects.get(uuid=post_db_sync_id)
+        post.response = response.json()
         post.published = True
         post.save()
         return response
@@ -147,5 +145,5 @@ class ListPost(ListAPIView):
     lookup_field = 'uuid'
 
     def get_queryset(self):
-        return SocialPost.objects.filter(account__account__user=self.request.user)
+        return SocialPost.objects.filter(account__user=self.request.user)
 

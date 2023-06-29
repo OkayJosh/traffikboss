@@ -1,10 +1,20 @@
 # myproject/celery.py
+import os
+
 from celery import Celery
 from django.utils import timezone
 from celery.signals import task_prerun, task_postrun
 import logging
 
+# Set the default Django settings module
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'traffikboss.settings')
+
+
 app = Celery('traffikboss')
+
+
+# Load the celery settings from the Django settings
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()

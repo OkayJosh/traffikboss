@@ -1,0 +1,122 @@
+:root {
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--black: #000;
+	--form-bg: #202040;
+	--nav-card-bg: #fbfbfb;
+	--ash: #666765;
+	--border-clr: #ccc;
+	--grey: #222;
+	--yellow: #ffb503;
+	--green: #62d493;
+	--red: #ff4961;
+	--dark: #202040;
+	--light-blue: #e7f0fe;
+}
+.hero-section {
+	background-color: var(--light-blue);
+	margin-bottom: 3rem;
+}
+.hero-section-inner {
+	padding: 4.5rem 0 5rem;
+}
+.hero-section-inner .content-inner {
+	text-align: center;
+}
+.hero-section-inner .content-inner {
+	text-align: justify;
+	width: 80%;
+	margin-inline: auto;
+}
+.hero-section-inner .content h1 {
+	color: var(--primary-clr);
+	font-size: 3rem;
+}
+.hero-section-inner .sub-text {
+	margin-top: 2rem;
+}
+.hero-section-inner .sub-text span {
+	color: var(--dark);
+}
+/* get in touch */
+.get-in-touch {
+	padding: 5pc 1rem;
+}
+.get-in-touch .title h2 {
+	font-weight: 600;
+	color: var(--primary-clr);
+}
+.get-in-touch .form-wrapper {
+	padding-top: 2rem;
+}
+.get-in-touch .form-wrapper > .row {
+	row-gap: 4em;
+}
+.get-in-touch .form-wrapper :is(.contact-means, .pre-form, .phone-email) {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	row-gap: 1rem;
+}
+.get-in-touch .form-wrapper .contact-means {
+	row-gap: 3.5rem;
+	justify-content: space-between;
+}
+@media all and (min-width: 768px) {
+	.get-in-touch .form-wrapper .contact-means {
+		row-gap: 13rem;
+	}
+}
+.get-in-touch .form-wrapper .contact-means .phone-email {
+	row-gap: 1.2em;
+}
+.get-in-touch .form-wrapper .socials ul {
+	display: flex;
+	align-items: center;
+	margin-top: 2rem;
+}
+.get-in-touch .socials ul li {
+	display: inline-block;
+	margin-right: 1.5rem;
+}
+.contact-means :is(.phone, .email) span:first-child {
+	margin-right: 1rem;
+}
+.contact-means :is(.phone, .email) svg {
+	color: var(--primary-clr);
+	width: 1.8rem;
+	height: 1.8rem;
+}
+.contact-means .socials li a svg {
+	width: 1.5em;
+}
+.get-in-touch .form-wrapper-inner .submit-btn {
+	margin-top: 1rem;
+}
+.get-in-touch .form-wrapper-inner .submit-btn button {
+	width: 100%;
+	color: var(--white);
+	border-radius: 6px;
+	display: flex;
+	font-size: 14px;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-clr);
+	min-height: 2.8rem;
+}
+.get-in-touch .form-wrapper-inner form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+.get-in-touch .form-input .form-label {
+	margin-bottom: 3px;
+	color: var(--dark);
+	font-size: 0.9rem;
+}
+.get-in-touch .form-input .form-control {
+	border-radius: 6px;
+}
+.get-in-touch .form-input textarea {
+	min-height: 150px;
+}

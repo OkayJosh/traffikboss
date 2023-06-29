@@ -1,0 +1,82 @@
+:root {
+	--font: BR;
+	--bg: #f5f5f5;
+	--primary-clr: #ff4a00;
+	--white: #fff;
+	--border: #ccc;
+	--green-light: #62d493;
+	--green-dark: #27cf70;
+	--grey: #d2d2d2;
+	--light-grey: #999;
+	--dark-grey: #666;
+	--black: #000;
+}
+.social-media-frames-wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3rem;
+	margin: 3rem 0 5rem;
+}
+.each-social-media-frame {
+	min-height: 350px;
+	border: 1px solid var(--border);
+	background-color: var(--white);
+	border-radius: 8px;
+	padding: 1rem 1.5rem;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.each-social-media-frame .header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.each-social-media-frame .header-title {
+	font-weight: 900;
+	color: var(--black);
+}
+.each-social-media-frame button {
+	background-color: var(--primary-clr);
+	color: var(--white);
+	border-radius: 6px;
+	font-size: 0.9rem;
+	padding: 10px 2rem;
+}
+@media all and (min-width: 768px) {
+	.page-content-body-inner {
+		width: 90%;
+	}
+}
+
+* .modal:has(form) form .form-input .form-control {
+	min-height: 3rem;
+}
+* .modal:has(form) form .form-input .form-control:focus {
+	border: 2px solid var(--primary-clr);
+	box-shadow: none;
+}
+* .modal:has(form) form .form-input .form-control::placeholder {
+	font-size: 14px;
+}
+* .modal:has(form) form .form-input label {
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+
+* .modal:has(form) .modal-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+* .modal:has(form) .modal-footer button {
+	font-size: 0.85rem;
+}
+* .modal:has(form) .modal-footer button.cancel {
+	text-decoration: underline;
+	color: var(--black);
+}
+* .modal:has(form) .modal-footer button.submit {
+	background-color: var(--primary-clr);
+	color: var(--white);
+	padding: 12px 2rem;
+	border-radius: 6px;
+}
